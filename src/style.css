@@ -1,0 +1,112 @@
+/*
+This is the Horizontal Navigation Bar Example with Active/Current Navigation Link
+From here https://www.w3schools.com/css/css_navbar.asp
+*/
+
+ul.header {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+  }
+  
+  ul.header li {
+    float: left;
+  }
+  
+  ul.header li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  ul.header li a:hover:not(.active) {
+    background-color: #111;
+  }
+    
+  .active {
+    background-color: #0c5c10;
+  }
+  
+  .content {
+    margin-left: 6%;
+    margin-right: 6%;
+    padding: 18px 16px;
+    height: 1000px;
+    font-size: small;
+  }
+
+  .button {
+    background-color: #aa1b11;
+    border: none;
+    color: white;
+    padding: 7px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 4px 2px;
+    cursor: pointer;
+  }
+  
+  .buttonIn {
+    background-color: #0c7411;
+    padding: 2px 16px;
+    font-size: 15px;
+  }
+
+  .buttonCategory {
+    background-color: #1a2fa7;
+    border: 2px solid #000000;
+  }
+
+  .buttonSort {
+    background-color: #1c88b3;
+  }
+
+  .lineHorizontal__container {
+    align-items: center;
+    display: flex;
+    height: 80px;
+  }
+  .lineHorizontal {
+    border-top: 1px solid rgb(30, 30, 30);
+    width: 100%;
+  }
+  img{
+    height: auto; 
+    width: auto; 
+    max-width: 200px; 
+    max-height: 200px;
+  }
+  table {
+    width: 75%;
+    border-collapse: collapse;
+}
+table, th, td {
+    border: 1px solid black;
+}
+th, td {
+    padding: 10px;
+}
+th{
+width: 200px}
+
+#table-user {
+  width: 100%;
+  text-align: center; 
+  border-collapse: collapse;
+}
+table, th, td {
+  border: 1px solid black;
+}
+th, td {
+  padding: 10px;
+}
+td {
+  width: 200px;
+}
+th{
+width: 200px}
