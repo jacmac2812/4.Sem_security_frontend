@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import facade from "./apiFacade";
 import Menu from "./Menu";
 import { useHistory, } from "react-router-dom";
@@ -38,8 +38,14 @@ function LoggedIn() {
 }
 
 function App() {
-  const [loggedIn, setLoggedIn] = useState(false);
+  const [loggedIn, setLoggedIn] = useState(true);
+  useEffect(() => {
+    if(facade.getToken() === null) {
+      setLoggedIn(false)
+    }
 
+}, []);
+ 
   let history = useHistory();
 
   const logout = () => {

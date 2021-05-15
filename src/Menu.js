@@ -1,8 +1,6 @@
 import ProductSearch from "./ProductSearch";
-import Category from "./category";
 import User from "./user";
 import Home from "./home";
-import OnSale from "./onSale";
 import AddUser from "./AddUser";
 import EditUser from "./editUser";
 import Users from "./Users";
@@ -41,12 +39,6 @@ export default function Menu() {
             <NavLink activeClassName="active" to="/productsearch">Search on product</NavLink>
           </li>
           <li>
-            <NavLink activeClassName="active" to="/category">Category</NavLink>
-          </li>
-          <li>
-            <NavLink activeClassName="active" to="/onsale">On Sale</NavLink>
-          </li>
-          <li>
             <NavLink activeClassName="active" to="/adduser">Add user</NavLink>
           </li>
           <li>
@@ -73,12 +65,6 @@ export default function Menu() {
         </Route>
         <Route path="/productsearch">
           <ProductSearch />
-        </Route>
-        <Route path="/category">
-          <Category />
-        </Route>
-        <Route path="/onsale">
-          <OnSale />
         </Route>
         <Route path="/adduser">
           <AddUser />

@@ -19,6 +19,8 @@ const loggedIn = () => {
 };
 const logout = () => {
   localStorage.removeItem("jwtToken");
+  localStorage.removeItem("name");
+  localStorage.removeItem("role");
 };
 
 const parseRole = (token) => {
@@ -76,21 +78,7 @@ function apiFacade() {
       handleHttpErrors
     );
   };
-  const fetchProductData = (search) => {
-    const options = makeOptions("GET", true); //True add's the token
-    return fetch(URL + "/api/products/" + search, options).then(handleHttpErrors);
-  };
-  
-  const fetchProductsOnSale = () => {
-    const options = makeOptions("GET", true); //True add's the token
-    return fetch(URL + "/api/products/offers", options).then(handleHttpErrors);
-  };
-
-  const fetchCategoriesData = (category) => {
-    const options = makeOptions("GET", true); //True add's the token
-    return fetch(URL + "/api/products/categories/"+ category, options).then(handleHttpErrors);
-  };
-
+//USER START
   const fetchAddUser = (user) => {
     const options = makeOptions("POST", true, user); //True add's the token
     return fetch(URL + "/api/users", options).then(handleHttpErrors);
@@ -108,18 +96,35 @@ function apiFacade() {
     const options = makeOptions("DELETE", true, user); //True add's the token
     return fetch(URL + "/api/users/" + user, options).then(handleHttpErrors);
   };
-  const fetchGetallFavorites = () => {
-    const options = makeOptions("GET", true); //True add's the token
-    return fetch(URL + "/api/products/favorites/" + getUser(), options).then(handleHttpErrors);
-  };
-  const fetchDeleteFavorit = (sku) => {
-    const options = makeOptions("DELETE", true); //True add's the token
-    return fetch(URL + "/api/products/favorites/"+ sku +"/users/" + getUser(), options).then(handleHttpErrors);
-  };
-  const fetchAddFavorit = (product) => {
-    const options = makeOptions("POST", true, product); //True add's the token
-    return fetch(URL + "/api/products/favorites/" + getUser(), options).then(handleHttpErrors);
-  };
+//USER END
+
+
+// POST START
+const fetchCreatePost = () => {
+  const options = makeOptions("GET", true); //True add's the token
+  return fetch(URL + "/api/users/all", options).then(handleHttpErrors);
+};
+
+const fetchDeletePost = () => {
+  const options = makeOptions("GET", true); //True add's the token
+  return fetch(URL + "/api/users/all", options).then(handleHttpErrors);
+};
+
+const fetchEditPost = () => {
+  const options = makeOptions("GET", true); //True add's the token
+  return fetch(URL + "/api/users/all", options).then(handleHttpErrors);
+};
+
+const fetchAllPosts = () => {
+  const options = makeOptions("GET", true); //True add's the token
+  return fetch(URL + "/api/users/all", options).then(handleHttpErrors);
+};
+
+const fetchAllUserPosts = () => {
+  const options = makeOptions("GET", true); //True add's the token
+  return fetch(URL + "/api/users/all", options).then(handleHttpErrors);
+};
+// POST END
 
   const makeOptions = (method, addToken, body) => {
     var opts = {
@@ -141,22 +146,21 @@ function apiFacade() {
     makeOptions,
     setToken,
     getToken,
+    getRole,
+    getUser,
     loggedIn,
     login,
     logout,
     fetchUserData,
-    fetchProductData, 
-    fetchProductsOnSale,
-    fetchCategoriesData, 
     fetchAddUser,
     fetchEditUser,
     fetchGetallUsers,
     fetchDeleteUser,
-    fetchGetallFavorites,
-    fetchDeleteFavorit,
-    fetchAddFavorit,
-    getRole,
-    getUser,
+    fetchCreatePost,
+    fetchDeletePost,
+    fetchEditPost,
+    fetchAllPosts,
+    fetchAllUserPosts
   };
 }
 const facade = apiFacade();

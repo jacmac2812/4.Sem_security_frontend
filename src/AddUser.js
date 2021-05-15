@@ -9,7 +9,8 @@ const CreateUser = () => {
     name: "",
     password: "",
     email: "",
-    phoneNumber: ""
+    age: "",
+    profilePicPath: ""
   };
 
   const [newUser, setNewUser] = useState(initialValue);
@@ -53,10 +54,17 @@ const CreateUser = () => {
       />
       <br />
       <input
-        name="phoneNumber"
+        name="age"
         value={newUser.phoneNumber}
         onChange={handleChange}
-        placeholder="Add phonenumber"
+        placeholder="Add age"
+      />
+      <br />
+      <input
+        name="profilePicPath"
+        value={newUser.phoneNumber}
+        onChange={handleChange}
+        placeholder="Add profile picture"
       />
       <br />
 

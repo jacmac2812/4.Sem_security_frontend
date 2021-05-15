@@ -7,7 +7,7 @@ const Home = () => {
                     Welcome to Group 10's pricerunner'ish site
                 </li>
                 <li>
-                    Christian, Frederik, Jacob and Jonas
+                    Christian, Frederik and Jacob
                 </li>
                 <div class="lineHorizontal__container">
                     <div class="lineHorizontal"></div>
