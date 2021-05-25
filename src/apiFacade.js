@@ -100,29 +100,29 @@ function apiFacade() {
 
 
 // POST START
-const fetchCreatePost = () => {
-  const options = makeOptions("GET", true); //True add's the token
-  return fetch(URL + "/api/users/all", options).then(handleHttpErrors);
+const fetchCreatePost = (content) => {
+  const options = makeOptions("POST", true, content); //True add's the token
+  return fetch(URL + "/api/posts/" + getUser(), options).then(handleHttpErrors);
 };
 
-const fetchDeletePost = () => {
-  const options = makeOptions("GET", true); //True add's the token
-  return fetch(URL + "/api/users/all", options).then(handleHttpErrors);
+const fetchDeletePost = (user, id) => {
+  const options = makeOptions("DELETE", true); //True add's the token
+  return fetch(URL + "/api/posts/" + id + "/users/" + user, options).then(handleHttpErrors);
 };
 
-const fetchEditPost = () => {
-  const options = makeOptions("GET", true); //True add's the token
-  return fetch(URL + "/api/users/all", options).then(handleHttpErrors);
+const fetchEditPost = (content, user) => {
+  const options = makeOptions("PUT", true, content); //True add's the token
+  return fetch(URL + "/api/posts/" + user, options).then(handleHttpErrors);
 };
 
 const fetchAllPosts = () => {
   const options = makeOptions("GET", true); //True add's the token
-  return fetch(URL + "/api/users/all", options).then(handleHttpErrors);
+  return fetch(URL + "/api/posts/all", options).then(handleHttpErrors);
 };
 
 const fetchAllUserPosts = () => {
   const options = makeOptions("GET", true); //True add's the token
-  return fetch(URL + "/api/users/all", options).then(handleHttpErrors);
+  return fetch(URL + "/api/posts/" + getUser(), options).then(handleHttpErrors);
 };
 // POST END
 

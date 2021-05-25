@@ -4,10 +4,11 @@ import Home from "./home";
 import AddUser from "./AddUser";
 import EditUser from "./editUser";
 import Users from "./Users";
-import Favorit from "./Favorit";
+import Posts from "./posts";
 import facade from "./apiFacade";
 import React, { useState, useEffect } from "react";
 import { NavLink, Route, Switch } from "react-router-dom";
+
 
 export default function Menu() {
   const role = facade.getRole();
@@ -36,9 +37,6 @@ export default function Menu() {
             <NavLink activeClassName="active" to="/user">Welcome</NavLink>
           </li>
           <li>
-            <NavLink activeClassName="active" to="/productsearch">Search on product</NavLink>
-          </li>
-          <li>
             <NavLink activeClassName="active" to="/adduser">Add user</NavLink>
           </li>
           <li>
@@ -51,7 +49,7 @@ export default function Menu() {
               </li>
             )}
           <li>
-            <NavLink activeClassName="active" to="/favorit">Favorit list</NavLink>
+            <NavLink activeClassName="active" to="/posts">Chat</NavLink>
           </li>
         </ul>
       </nav>
@@ -63,9 +61,6 @@ export default function Menu() {
         <Route path="/user">
           <User />
         </Route>
-        <Route path="/productsearch">
-          <ProductSearch />
-        </Route>
         <Route path="/adduser">
           <AddUser />
         </Route>
@@ -75,8 +70,8 @@ export default function Menu() {
         <Route path="/users">
           <Users />
         </Route>
-        <Route path="/favorit">
-          <Favorit />
+        <Route path="/posts">
+          <Posts />
         </Route>
       </Switch>
     </div>
