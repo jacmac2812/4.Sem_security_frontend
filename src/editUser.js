@@ -1,4 +1,5 @@
 import facade from "./apiFacade";
+import ProfilePicPath from "./uploadPic";
 import React, { useState } from "react";
 import "./style.css";
 import "bootstrap"
@@ -7,7 +8,8 @@ const EditUser = () => {
   const initialValue = {
     password: "",
     email: "",
-    phoneNumber: ""
+    age: "",
+    profilePicPath: ""
   };
 
   const [editUser, setEditUser] = useState(initialValue);
@@ -20,6 +22,9 @@ const EditUser = () => {
   };
 
   const handleSubmit = event => {
+    if(editUser.age === ""){
+      editUser.age = "0";
+    }
     event.preventDefault();
     facade.fetchEditUser(editUser);
     setEditUser(initialValue);
@@ -39,6 +44,7 @@ const EditUser = () => {
       />
       <br />
       <input
+        type="email"
         name="email"
         value={editUser.email}
         onChange={handleChange}
@@ -46,16 +52,19 @@ const EditUser = () => {
       />
       <br />
       <input
-        name="phoneNumber"
-        value={editUser.phoneNumber}
+        name="age"
+        value={editUser.age}
         onChange={handleChange}
-        placeholder="Edit phonenumber"
+        placeholder="Edit age"
       />
       <br />
 
       <button className="button buttonCategory buttonSort" type="submit" value="Submit">Edit</button>
 
     </form>
+    <h3>Change profile picture</h3>
+    <ProfilePicPath />
+    <br />
     </>
 
   );

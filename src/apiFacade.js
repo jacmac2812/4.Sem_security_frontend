@@ -21,6 +21,7 @@ const logout = () => {
   localStorage.removeItem("jwtToken");
   localStorage.removeItem("name");
   localStorage.removeItem("role");
+  localStorage.removeItem("saved");
 };
 
 const parseRole = (token) => {
@@ -55,6 +56,10 @@ const parseUser = (token) => {
   }
 };
 
+const setExpiryTime = () => {
+localStorage.setItem("saved", new Date().getTime())
+}
+
 function apiFacade() {
   /* Insert utility-methods from a latter step (d) here (REMEMBER to uncomment in the returned object when you do)*/
 
@@ -69,6 +74,7 @@ function apiFacade() {
         setToken(res.token);
         setRole(parseRole(res.token));
         setUser(parseUser(res.token));
+        setExpiryTime();
       });
   };
 
@@ -95,6 +101,10 @@ function apiFacade() {
   const fetchDeleteUser = (user) => {
     const options = makeOptions("DELETE", true, user); //True add's the token
     return fetch(URL + "/api/users/" + user, options).then(handleHttpErrors);
+  };
+  const fetchGetPicture = (user) => {  
+    const options = makeOptions("GET", true); //True add's the token
+    return fetch(URL + "/api/users/getpicture/" + user, options).then(handleHttpErrors);
   };
 //USER END
 
@@ -142,6 +152,7 @@ const fetchAllUserPosts = () => {
     }
     return opts;
   };
+
   return {
     makeOptions,
     setToken,
@@ -156,6 +167,7 @@ const fetchAllUserPosts = () => {
     fetchEditUser,
     fetchGetallUsers,
     fetchDeleteUser,
+    fetchGetPicture,
     fetchCreatePost,
     fetchDeletePost,
     fetchEditPost,

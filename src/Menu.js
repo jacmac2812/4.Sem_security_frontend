@@ -37,16 +37,18 @@ export default function Menu() {
             <NavLink activeClassName="active" to="/user">Welcome</NavLink>
           </li>
           <li>
-            <NavLink activeClassName="active" to="/adduser">Add user</NavLink>
-          </li>
-          <li>
             <NavLink activeClassName="active" to="/edituser">Edit User</NavLink>
           </li>
           {
             isAdmin && (
-              <li>
-                <NavLink activeClassName="active" to="/users">See all users</NavLink>
-              </li>
+              <>
+                <li>
+                  <NavLink activeClassName="active" to="/users">See all users</NavLink>
+                </li>
+                <li>
+                  <NavLink activeClassName="active" to="/adduser">Add user</NavLink>
+                </li>
+              </>
             )}
           <li>
             <NavLink activeClassName="active" to="/posts">Chat</NavLink>

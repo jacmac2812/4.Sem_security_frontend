@@ -1,13 +1,13 @@
 const Home = () => {
     return (
         <div>
-            <h2>Semester project</h2>
+            <h2>Security Project</h2>
             <ul>
                 <li>
-                    Welcome to Group 10's pricerunner'ish site
+                    Welcome to our chat/forum site
                 </li>
                 <li>
-                    Christian, Frederik and Jacob
+                   <b>Made by:</b> Christian, Frederik and Jacob
                 </li>
                 <div class="lineHorizontal__container">
                     <div class="lineHorizontal"></div>

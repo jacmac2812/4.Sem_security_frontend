@@ -10,7 +10,7 @@ const CreateUser = () => {
     password: "",
     email: "",
     age: "",
-    profilePicPath: ""
+    profilePicPath: "nothing.jpg"
   };
 
   const [newUser, setNewUser] = useState(initialValue);
@@ -30,6 +30,7 @@ const CreateUser = () => {
 
 
   return (
+    <div>
     <form onSubmit={handleSubmit}>
 
       <input
@@ -47,6 +48,7 @@ const CreateUser = () => {
       />
       <br />
       <input
+        type="email"
         name="email"
         value={newUser.email}
         onChange={handleChange}
@@ -55,23 +57,18 @@ const CreateUser = () => {
       <br />
       <input
         name="age"
-        value={newUser.phoneNumber}
+        value={newUser.age}
         onChange={handleChange}
         placeholder="Add age"
       />
       <br />
-      <input
-        name="profilePicPath"
-        value={newUser.phoneNumber}
-        onChange={handleChange}
-        placeholder="Add profile picture"
-      />
-      <br />
+
+      
 
       <button className="button buttonCategory buttonSort" type="submit" value="Submit">Add</button>
 
     </form>
-
+    </div>
   );
 };
 

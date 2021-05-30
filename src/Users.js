@@ -6,9 +6,12 @@ const Users = () => {
     const [usersData, setUsersData] = useState("");
 
     useEffect(() => {
-        facade.fetchGetallUsers().then((data) => setUsersData(data.all));
+        const interval = setInterval(() => {
+            facade.fetchGetallUsers().then((data) => setUsersData(data.all));
+          }, 2000);
+          return () => clearInterval(interval);
     }, []);
-
+    
     const handleDeleteUser = (name) => {
         facade.fetchDeleteUser(name).then(facade.fetchGetallUsers().then((data) => setUsersData(data.all)));
     }
@@ -21,7 +24,7 @@ const Users = () => {
                 <tr>
                     <th>Name</th>
                     <th>Email</th>
-                    <th>PhoneNumber</th>
+                    <th>Age</th>
                     <th>Delete user</th>
                 </tr>
             </table>
@@ -34,7 +37,7 @@ const Users = () => {
                                 <tr>
                                     <td>{user.name}</td>
                                     <td>{user.email}</td>
-                                    <td>{user.phoneNumber}</td>
+                                    <td>{user.age}</td>
                                     <td>{usersData && <button className="button buttonCategory buttonSort" onClick={() => handleDeleteUser(user.name)}>DELETE</button>}</td>
                                 </tr>
                             </table>
